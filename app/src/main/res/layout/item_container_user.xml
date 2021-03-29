@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/userContainer"
+    android:animateLayoutChanges="true"
+    android:padding="@dimen/_5sdp">
+
+    <TextView
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:id="@+id/textFirstChar"
+        android:gravity="center"
+        android:background="@drawable/background_user_icon"
+        android:fontFamily="@font/ubuntu_bold"
+        android:textAllCaps="true"
+        android:includeFontPadding="false"
+        android:textSize="@dimen/_22ssp"
+        android:textColor="@color/colorTextIcons"
+        app:layout_constraintBottom_toTopOf="@id/viewDivider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/imageSelected"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_accept"
+        app:tint="@color/colorTextIcons"
+        android:background="@drawable/background_user_icon"
+        android:padding="@dimen/_3sdp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/textFirstChar"
+        app:layout_constraintTop_toTopOf="@id/textFirstChar"
+        app:layout_constraintEnd_toEndOf="@id/textFirstChar"
+        app:layout_constraintStart_toStartOf="@id/textFirstChar"
+
+        />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:id="@+id/viewSupporter"
+        app:layout_constraintBottom_toBottomOf="@id/textFirstChar"
+        app:layout_constraintStart_toEndOf="@id/textFirstChar"
+        app:layout_constraintTop_toTopOf="@id/textFirstChar"/>
+
+    <ImageView
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:id="@+id/imageVideoMeeting"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_video"
+        app:tint="@color/purple_500"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/viewDivider"
+        android:padding="@dimen/_2sdp"
+        />
+
+    <ImageView
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:id="@+id/imageAudioMeeting"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_audio"
+        app:tint="@color/purple_500"
+        app:layout_constraintEnd_toStartOf="@id/imageVideoMeeting"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/viewDivider"
+        android:padding="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_8sdp"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/testUserName"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:ellipsize="end"
+        android:fontFamily="@font/ubuntu_regular"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:textSize="@dimen/_13ssp"
+        android:textColor="@color/colorPrimaryText"
+        app:layout_constraintStart_toEndOf="@id/textFirstChar"
+        app:layout_constraintEnd_toStartOf="@id/imageAudioMeeting"
+        app:layout_constraintBottom_toTopOf="@id/viewSupporter"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/textEmail"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:ellipsize="end"
+        android:fontFamily="@font/ubuntu_regular"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:textSize="@dimen/_10ssp"
+        android:textColor="@color/colorPrimaryText"
+        app:layout_constraintStart_toEndOf="@id/textFirstChar"
+        app:layout_constraintEnd_toStartOf="@id/imageAudioMeeting"
+        app:layout_constraintTop_toBottomOf="@id/viewSupporter"
+        />
+    
+
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:id="@+id/viewDivider"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:background="@color/colorDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/textFirstChar"
+        app:layout_constraintTop_toBottomOf="@id/textFirstChar"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
