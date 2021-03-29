@@ -12,6 +12,8 @@
     <color name="colorDivider">#BDBDBD</color>
     <color name="colorTextIcons">#FFFFFF</color>
     <color name="colorBackground">#FAFAFA</color>
+    <color name="colorMeetingInvitationStart">#303F9F</color>
+    <color name="colorMeetingInvitationEnd">#8A1AAA</color>
     <color name="colorMintText">#BDBDBD</color>
 
 </resources>

@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Video Meeting</string>
+    <string name="app_name">Venom</string>
     <string name="welcome_to">Welcome to</string>
-    <string name="video_meeting_conference_app">Video Meeting | Conference App</string>
+    <string name="video_meeting_conference_app">Venom Conference</string>
     <string name="sign_in_to_your_account">Sign in to your account</string>
     <string name="email">Email</string>
     <string name="moon_example_com">moon@example.com</string>
@@ -18,4 +18,13 @@
     <string name="ahmed">Ahmed</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="already_have_an_account">Already have an account?</string>
+    <string name="welcome_to_video_meeting">Welcome to Venom</string>
+    <string name="let_s_go">Go</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="do_you_want_sign_out">Do you want Sign out?</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="yes">Yes</string>
+    <string name="incoming_meeting_invitation">Incoming Meeting Invitation</string>
+    <string name="sending_meeting_invitation">Sending Meeting Invitation</string>
 </resources>

@@ -1,15 +1,14 @@
 package com.example.videomeeting.Activities;
 
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
-import android.view.View;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.videomeeting.R;
 import com.example.videomeeting.utilities.Constants;
 import com.example.videomeeting.utilities.PreferenceManager;
@@ -22,7 +21,6 @@ public class SingUpActivity extends AppCompatActivity {
 
     private EditText inputFirstName , inputLastName , inputEmail , inputPassword , inputConfirmPassword;
     private MaterialButton buttonSingUp;
-    private ProgressBar singUpProgressBar;
     private PreferenceManager preferenceManager;
 
     @Override
@@ -41,7 +39,6 @@ public class SingUpActivity extends AppCompatActivity {
         inputPassword = findViewById(R.id.inputPassword);
         inputConfirmPassword = findViewById(R.id.inputConfirmPassword);
         buttonSingUp = findViewById(R.id.signUpButton);
-        singUpProgressBar = findViewById(R.id.singUpProgressBar);
 
         buttonSingUp.setOnClickListener(v -> {
             if (inputFirstName.getText().toString().trim().isEmpty()){
@@ -64,8 +61,7 @@ public class SingUpActivity extends AppCompatActivity {
         });
     }
     private void singUp(){
-        buttonSingUp.setVisibility(View.VISIBLE);
-        singUpProgressBar.setVisibility(View.VISIBLE);
+
 
         FirebaseFirestore database = FirebaseFirestore.getInstance();
         HashMap<String , Object> user = new HashMap<>();
@@ -78,6 +74,7 @@ public class SingUpActivity extends AppCompatActivity {
                 .add(user)
                 .addOnSuccessListener(documentReference -> {
                     preferenceManager.putBoolean(Constants.KEY_IS_SIGNED_IN , true);
+                    preferenceManager.putString(Constants.KEY_USER_ID , documentReference.getId());
                     preferenceManager.putString(Constants.KEY_FIRST_NAME , inputFirstName.getText().toString());
                     preferenceManager.putString(Constants.KEY_LAST_NAME , inputLastName.getText().toString());
                     preferenceManager.putString(Constants.KEY_EMAIL ,inputEmail.getText().toString());
@@ -86,8 +83,6 @@ public class SingUpActivity extends AppCompatActivity {
                     startActivity(i);
                 })
                 .addOnFailureListener(e -> {
-                    singUpProgressBar.setVisibility(View.VISIBLE);
-                    buttonSingUp.setVisibility(View.VISIBLE);
                     Toast.makeText(SingUpActivity.this, "Error, try again" + e.getMessage(), Toast.LENGTH_SHORT).show();
                 });
     }

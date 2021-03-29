@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_150sdp"
             android:id="@+id/layoutHeader"
-            android:background="@color/purple_200"
+            android:background="@color/purple_500"
             android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintTop_toTopOf="parent"
@@ -143,6 +143,7 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
+
         <com.google.android.material.button.MaterialButton
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
@@ -159,15 +160,7 @@
             app:cornerRadius="@dimen/_8sdp"
             />
 
-        <ProgressBar
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
-            android:id="@+id/progressSignIn"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="@id/signInButton"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/signInButton"/>
+
 
         <TextView
             android:layout_width="match_parent"

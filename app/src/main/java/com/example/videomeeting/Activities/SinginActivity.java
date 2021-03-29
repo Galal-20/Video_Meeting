@@ -1,13 +1,13 @@
 package com.example.videomeeting.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
-import android.view.View;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.videomeeting.R;
 import com.example.videomeeting.utilities.Constants;
 import com.example.videomeeting.utilities.PreferenceManager;
@@ -19,7 +19,6 @@ public class SinginActivity extends AppCompatActivity {
 
     private EditText inputEmail , inputPassword;
     private MaterialButton buttonSignIn;
-    private ProgressBar progressBarSignIn;
     private PreferenceManager preferenceManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +39,6 @@ public class SinginActivity extends AppCompatActivity {
         inputEmail = findViewById(R.id.inputSignInEmail);
         inputPassword = findViewById(R.id.inputSignInPassword);
         buttonSignIn = findViewById(R.id.signInButton);
-        progressBarSignIn = findViewById(R.id.progressSignIn);
 
 
 
@@ -58,8 +56,6 @@ public class SinginActivity extends AppCompatActivity {
     }
 
     private void signIn(){
-        buttonSignIn.setVisibility(View.VISIBLE);
-        progressBarSignIn.setVisibility((View.VISIBLE));
 
         FirebaseFirestore database = FirebaseFirestore.getInstance();
         database.collection(Constants.KEY_COLLECTION_USERS)
@@ -69,6 +65,7 @@ public class SinginActivity extends AppCompatActivity {
                     if (task.isSuccessful() && task.getResult() != null && task.getResult().getDocuments().size()>0){
                         DocumentSnapshot documentSnapshot = task.getResult().getDocuments().get(0);
                         preferenceManager.putBoolean(Constants.KEY_IS_SIGNED_IN , true);
+                        preferenceManager.putString(Constants.KEY_USER_ID , documentSnapshot.getId());
                         preferenceManager.putString(Constants.KEY_FIRST_NAME , documentSnapshot.getString(Constants.KEY_FIRST_NAME));
                         preferenceManager.putString(Constants.KEY_LAST_NAME , documentSnapshot.getString(Constants.KEY_LAST_NAME));
                         preferenceManager.putString(Constants.KEY_EMAIL , documentSnapshot.getString(Constants.KEY_EMAIL));
@@ -76,9 +73,7 @@ public class SinginActivity extends AppCompatActivity {
                         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(i);
                     }else {
-                        progressBarSignIn.setVisibility(View.VISIBLE);
-                        buttonSignIn.setVisibility(View.VISIBLE);
-                        Toast.makeText(SinginActivity.this, "Unable to sign In", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SinginActivity.this, "Check Email or Password", Toast.LENGTH_SHORT).show();
                     }
                 });
     }

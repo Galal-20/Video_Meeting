@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.videomeeting"
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -52,7 +52,11 @@ dependencies {
     
     //retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
+
+    //json
+    implementation 'com.google.code.gson:gson:2.8.6'
+
 
     //swipe refresh layout
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
@@ -60,5 +64,11 @@ dependencies {
     //Firebase
     implementation 'com.google.firebase:firebase-messaging:21.0.1'
     implementation 'com.google.firebase:firebase-firestore:22.1.1'
+
+    //jitsi meeting
+    implementation ('org.jitsi.react:jitsi-meet-sdk:2.11.0') { transitive = true }
+
+
+
 
 }
